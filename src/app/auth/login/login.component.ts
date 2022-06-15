@@ -1,20 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../../services/usuario.service';
+import { ErrorValidator } from '../../interfaces/errors.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor(private router: Router) { }
+  public formSubmitted = false;
 
-  ngOnInit(): void {
-  }
+  public loginForm = this.fb.group({
+    email: ['oscaromar.graciano@durango.gob.mx', [Validators.required, Validators.email]],
+    password: ['123456789', Validators.required]
+  });
+
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private usuarioService: UsuarioService) { }
 
   login() {
-    this.router.navigateByUrl('/');
+    let mensaje: string = '';
+    this.usuarioService.login(this.loginForm.value)
+      .subscribe({next: resp => {
+        this.router.navigateByUrl('/');
+      }, error: err => {
+        if(err.error.errors){
+          err.error.errors.forEach((e: ErrorValidator) => {
+            mensaje += `${e.msg} <br/><br/>`
+          });
+          Swal.fire('Error', mensaje, 'error');
+        } else {
+          Swal.fire('Error', err.error.msg, 'error');
+        }
+      }
+    });
   }
 
 }
