@@ -1,0 +1,34 @@
+<div class="fondo-modal animated fadeIn fast oculto" [class.oculto]="modalService.ocultarModal">
+  <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" style="display: block;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel1">New message</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" (click)="cerrarModal()">×</span></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="usuarioForm" (ngSubmit)="submit()" id="usuarioform">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                          <label for="recipient-name" class="control-label">Nombre:</label>
+                          <input type="text" class="form-control" id="nombre" formControlName="nombre">
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                      <label for="message-text" class="control-label">Apellido Paterno:</label>
+                            <input class="form-control" id="apellido_paterno" formControlName="apellido_paterno" />
+                        </div>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="submit()">Send message</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

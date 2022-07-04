@@ -2,3 +2,52 @@
 .cursor {
   cursor: pointer;
 }
+
+.img-avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.red{
+  color: red;
+  font-weight: bold;
+}
+
+.w100 {
+  width: 100px;
+}
+
+.w400 {
+  width: 400px;
+}
+
+.w300 {
+  width: 300px;
+}
+
+.w200 {
+  width: 200px;
+}
+
+tr, td {
+  height: 10px !important;
+}
+
+.icono {
+  width: 25px;
+  border-radius: 100%;
+}
+
+.fondo-modal {
+  background-color: rgba(0, 0, 0, .4);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+
+.oculto {
+  display: none;
+}

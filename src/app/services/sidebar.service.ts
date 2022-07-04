@@ -13,7 +13,22 @@ export class SidebarService {
       {titulo: 'ProgressBar', url: 'progress'},
       {titulo: 'Graficas', url: 'grafica1'},
     ]
-  }
+  },
+
+    {titulo: 'Administrador',
+      icono: 'mdi mdi-account-multiple',
+      submenus: [
+        {titulo: 'Usuarios del Sistema', url: 'usuarios'},
+      ]
+    },
+
+    {titulo: 'Patrimonio',
+      icono: 'mdi mdi-folder-lock-open',
+      submenus: [
+        {titulo: 'Patrimonios', url: 'patrimonios'},
+        {titulo: 'Areas', url: 'areas'},
+      ]
+    },
   ]
 
   constructor() { }

@@ -12,6 +12,7 @@ import { Grafica1Component } from './grafica1/grafica1.component';
 import { ProgressComponent } from './progress/progress.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 
@@ -22,6 +23,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     Grafica1Component,
     PagesComponent,
     AccountSettingsComponent,
+    UsuariosComponent,
   ],
   exports: [
     DashboardComponent,
